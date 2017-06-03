@@ -5,7 +5,7 @@ using namespace std;
 class Operation
 {
 public:
-    Operation(const double n1, const double n2) : num1(n1), num2(n2) { }
+    Operation(const double& n1, const double& n2) : num1(n1), num2(n2) { }
     virtual const double getResult() = 0;
 protected:
     double num1;
@@ -16,7 +16,7 @@ protected:
 class Additon : public Operation
 {
 public:
-    Additon(const double n1, const double n2) : Operation(n1, n2) { }
+    Additon(const double& n1, const double& n2) : Operation(n1, n2) { }
     const double getResult() override
     {
         result = num1 + num2;
@@ -27,7 +27,7 @@ public:
 class Subtraction : public Operation
 {
 public:
-    Subtraction(const double n1, const double n2) : Operation(n1, n2) { }
+    Subtraction(const double& n1, const double& n2) : Operation(n1, n2) { }
     const double getResult() override
     {
         result = num1 - num2;
@@ -38,7 +38,7 @@ public:
 class Multiplication : public Operation
 {
 public:
-    Multiplication(const double n1, const double n2) : Operation(n1, n2) { }
+    Multiplication(const double& n1, const double& n2) : Operation(n1, n2) { }
     const double getResult() override
     {
         result = num1 * num2;
@@ -49,7 +49,7 @@ public:
 class Division : public Operation
 {
 public:
-    Division(const double n1, const double n2) : Operation(n1, n2) { }
+    Division(const double& n1, const double& n2) : Operation(n1, n2) { }
     const double getResult() override
     {
         if (num2 == 0)
