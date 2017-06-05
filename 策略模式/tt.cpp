@@ -63,6 +63,7 @@ public:
             break;
         }
     }
+    ~CashContext() { delete cb; }
     double getTotalPrice(double money)
     {
         return cb -> acceptCash(money);

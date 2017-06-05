@@ -50,6 +50,7 @@ class CashContext
 public:
     CashContext() = default;
     CashContext(CashBase *pcb) : cb(pcb) { }
+    ~CashContext() { delete cb; }
     double getTotalPrice(double money)
     {
         return cb -> acceptCash(money);
@@ -73,7 +74,7 @@ int main()
     cout << "3、满200减100" << endl;
     cin >> option;
     CashContext *cc;
-    switch(option)
+    switch(option)      // main函数知道具体的算法类，暴露太多细节
     {
     case '1':
         cc = new CashContext(new CashNormol);
